@@ -1,63 +1,29 @@
 package dsfsdf;
 
-public class dsadsad {
+public class SapXepThanhSoLonNhat {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//12, 121, 120, 1200, 12000, 3, 30, 34, 5, 9
-		//3, 30, 34, 5, 9
-		//12, 123, 1234, 12345
-		//9, 91, 911, 912, 92
-		//15, 150, 151, 152
-		//1010, 101, 1001, 100
-		int M[]=new int[] {12, 121, 120, 1200, 12000, 3, 30, 12, 34, 16, 5, 9,209,219,2,21};
-		String N[]=new String[M.length];
-		for(int i=0;i<N.length;i++) {
-			N[i]=""+M[i];
-		}
-		for(int i=0;i<N.length;i++) {
-			for(int j=i+1;j<N.length;j++) {
-				char a1=N[i].charAt(0);
-				char a2=N[j].charAt(0);
-				int so1=a1-'0';
-				int so2=a2-'0';
-				if(so1<so2) {
-					String teamp=N[i];
-					N[i]=N[j];
-					N[j]=teamp;
-				}
-			}
-		}
+		int M[]=new int[] {0, 0, 1, 1};
 		
-		for(int i=0;i<N.length;i++) {
-			for(int j=i+1;j<N.length;j++) {
-				char a1=N[i].charAt(0);
-				char a2=N[j].charAt(0);
-				int so1=a1-'0';
-				int so2=a2-'0';
-				if(so1==so2 && N[i].length()>N[j].length()) {
-					String teamp=N[i];
-					N[i]=N[j];
-					N[j]=teamp;
+        for (int i=0; i<M.length - 1; i++) {
+            for (int j=0; j<M.length-1-i; j++) {
+				String chuso1=""+M[j];
+				String chuso2=""+M[j+1];
+				String so1=chuso1+chuso2;
+				String so2=chuso2+chuso1;
+				int sothat1=Integer.parseInt(so1);
+				int sothat2=Integer.parseInt(so2);
+				if(sothat1>sothat2) {
+					int teamp=M[j];
+					M[j]=M[j+1];
+					M[j+1]=teamp;
 				}
-			}
-		}
-		for(int i=0;i<N.length;i++) {
-			for(int j=i+1;j<N.length;j++) {
-				char a1=N[i].charAt(0);
-				char a2=N[j].charAt(0);
-				int so1=a1-'0';
-				int so2=a2-'0';
-				if(so1==so2 && N[i].length()==N[j].length() && 
-					Integer.parseInt(N[i]) <= Integer.parseInt(N[j])) {
-					String teamp=N[i];
-					N[i]=N[j];
-					N[j]=teamp;
-				}
-			}
-		}
-		for(int i=0;i<N.length;i++) {
-			System.out.print(N[i]+" ");
+            }
+        }
+        System.out.println("Vậy số lớn nhất được tạo ra là");
+		for(int i=M.length-1;i>=0;i--) {
+			System.out.print(M[i]);
 		}
 	}
 
